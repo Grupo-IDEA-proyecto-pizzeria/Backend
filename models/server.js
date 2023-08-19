@@ -2,14 +2,17 @@ import express from 'express';
 import cors from 'cors';
 
 import { routerUsr } from '../routes/usuarios.js';
+import { routerProducts } from '../routes/products.js';
 
 class Server {
 
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
+
     // Se agregan las siguientes variables para el uso de las rutas
-    this.usuariosPath = '/api/usuarios';
+    this.usersPath = '/api/users';
+    this.productsPath = '/api/products';
 
     // Middlewares
     this.middlewares();
@@ -32,7 +35,8 @@ class Server {
   routes() {
     // Rutas para el uso de app
     // Ruta para usuarios
-    this.app.use( this.usuariosPath, routerUsr);
+    this.app.use( this.usersPath, routerUsr);
+    this.app.use( this.productsPath, routerProducts);
 
     // Probando ruta api
     this.app.get("/api", (req, res, next) => {
