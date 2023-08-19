@@ -4,12 +4,12 @@ import admin from './../config/firebase.js';
 // UTILS
 import { DBUtils } from '../utils/DBUtils.js';
 import { Helper } from '../utils/Helper.js';
-import { ValidationUtils } from '../utils/validationUtils.js';
+// import { ValidationUtils } from '../utils/validationUtils.js';
 
 // CONFIGURATION
 const response = express.response;
 const db = admin.firestore();
-const validationUtils = new ValidationUtils();
+// const validationUtils = new ValidationUtils();
 const helper = new Helper();
 const dbUtils = new DBUtils();
 

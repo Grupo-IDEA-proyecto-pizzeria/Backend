@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "db-crustopia",
+  "private_key_id": "5e21523815234efeb0ae5ca2fb5bc3c2278e9973",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDZDisH4Vs2pAwR\nzdX0CHeJx67Hj0kJWxoQ7Rze95pOaNol3fO++7bWVlap8hD/bBqQIvPTnYMOuZGh\nLXWmZyxIuhXef00SBQT0KVXVy9nMLqCDuzciJkicaXqxpVm9DFcSw9by62/dlqQj\nfp3VDayFcNkUsdVY8muikWtd7kbvE9GjsUOj5+Ks9W/d6WM2XLb//Tdq0EvBUVON\nEEUEAjp34mNixFzZmR2Q4iczNRRsL9USujBuV0VR7FG2t2m+twcWLREYr+ABvhBW\nHOZanBJ97ZDmomexWkLh2CQcYGTWnJoeSnfX7dHtPdlX1wAlHuqoVAkpG+lWjI3n\nxmvK41ypAgMBAAECggEAFZm9WoloxGVK9jKfyitVihafJCj0QcQZMfoG14GYj5kL\nrJ0L9sOiDG6HLV5zppehhRqVXUfdlQeOoJWfkbHOzGYIax4ME3EAbzP14NLql9FE\nFBf7gqCAtWAh36/u4EtsFuf6ai5X8ZteNlIRbvRvaNA0KkUQUEu/vmvuXWirEnud\naWBo5myda2kolxx4Lg7cNo0T5s6ls/iCqCmP5q3E31DX/WF3CorRf7ouKhH4bGsa\n5krpNczmjIgOkW95tkJX7c9KhKg4jo1CmCxgsLYS72sajT+t4QgEJ/O+3fLHi5M4\nqkkxLFTaTaZs+VBmgNp0i8FWjWw6qj2aA9Dn9fBZ6QKBgQD8EKjmIUPib5xUpnVn\nBf+cY+35tffQdXXstAVjG4kYuGMkMh5H/V1ceScZQFyR70RrTCcse6hZTM4ubFnk\nDAUYaEY1oZmHj6L4JSRBQnLmwFQnMHCfDWDJpCnI97TzDWTcNiuYRbdjjRqG2WqQ\nEaRg8XIl20DOSGQamjg8PTDLGwKBgQDccZjhIMQJWFShrryg8nZK/arROBT84aIl\n5iTdWG6hRhAxDPN4Kr4RiZLJU6KjDTpB62Zdzn0jEsDpN8IeZdaB8ibnPiSp+wXu\nm04uClBvvp5IBRTZpdzaCXrncOkW8YnY2k9Ast57d0SVT4DHAj+vEuSfmq4epeUV\nl7SBFeOPiwKBgQDo+gUCX7C88+gMnaZZyMOPKxXj/frFJCwQ0ftAtUysGpEX/XLb\nmyTVue0Xe9OT1xDoE4UJqmnZ0BGp+t/C1hFHk+mA3JJpJ6u7q6is4NwOx6mAZ1dQ\nyy6wcRll9P28wJ5+o1r77UQpsVvZU88YxhWmvMOClfp6L5LGu9BKbUxSDQKBgQCJ\n4Er8U+AI8EROs9mq2Lt//9R88xS9bepaxe08u/jFyeqKo00MVb93fJJgdXz9emJ7\npF3sQiAmda5Or98r4AogUHJgo4+O+UAmkuB9D1pr6c9ZwEPgNUtC3DcQ1qATB5Nu\nHG0BTF623kv5Dza+QfvO5oQ0ByzsYlo7/RyauDQSLQKBgQDey5IRKueE4346eqMn\njtRDVArG9y+tXOpyYziwtxm5xGhmTVcGeZfjRqhxpJejqC02czJcXp8fHBZ0iVFn\nMDkjadZvizTPSPWwlFmIEjlb1kCT+zaTxr73SBNxd2EITuQv2WQTKbPzXYNHUXNQ\nVvZi8YGD5Zc+LlXOBCFq7CUq9g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-lm595@db-crustopia.iam.gserviceaccount.com",
+  "client_id": "116183844539392588937",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-lm595%40db-crustopia.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
