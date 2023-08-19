@@ -9,13 +9,8 @@ export const routerProducts = Router();
 
 routerProducts.get('/:type', getProducts );
 
-routerProducts.get('/', getProducts );
-
-routerProducts.put('/:id', getProducts );
-
 routerProducts.post('/', createProduct );
 
-routerProducts.delete('/', getProducts );
 
 
 
