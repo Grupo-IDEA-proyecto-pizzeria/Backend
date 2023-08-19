@@ -1,17 +1,19 @@
 import { Router } from 'express';
 import { 
-    getProducts, 
+    getProducts,
+    createProduct,
+    
 } from '../controllers/productController.js';
 
 export const routerProducts = Router();
 
-routerProducts.get('/', getProducts );
+routerProducts.get('/:type', getProducts );
 
 routerProducts.get('/', getProducts );
 
 routerProducts.put('/:id', getProducts );
 
-routerProducts.post('/', getProducts );
+routerProducts.post('/', createProduct );
 
 routerProducts.delete('/', getProducts );
 
