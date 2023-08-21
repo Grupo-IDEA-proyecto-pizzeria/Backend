@@ -17,8 +17,8 @@ routerUsers.get('/', UserController.getAllUsers );
 // routerUsers.put('/:id', usuariosPut );
 
 routerUsers.post('/', [
-  check('name', 'El campo name es obligatorio').not().isEmpty(),
-  check('email').isEmail(),
+  // check('name', 'El campo name es obligatorio').not().isEmpty(),
+  // check('email').isEmail(),
   validationUtils.validateFields
 ], UserController.createUser );
 
