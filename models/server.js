@@ -1,7 +1,7 @@
 import express from 'express'; 
 import cors from 'cors';
 
-import { routerUsr } from '../routes/users.js';
+import { routerUsers } from '../routes/users.js';
 import { routerProducts } from '../routes/products.js';
 
 class Server {
@@ -35,14 +35,9 @@ class Server {
   routes() {
     // Rutas para el uso de app
     // Ruta para usuarios
-    this.app.use( this.usersPath, routerUsr);
+    this.app.use( this.usersPath, routerUsers);
     this.app.use( this.productsPath, routerProducts);
 
-    // Probando ruta api
-    this.app.get("/api", (req, res, next) => {
-      res.status(200).send('<h1>Servicio en línea</h1>');
-    });
-    
     // Error 404
     this.app.use('*', (req, res) => {
       res.status(400).send('<h1>404 - Page not found</h1>');
