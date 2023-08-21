@@ -17,6 +17,28 @@ export class DBUtils {
         return dataWithId;
     }
 
+    async getElements(collectionName) {
+  
+      const docRef = this.db.collection(collectionName);
+      const docsSnapshot = await docRef.get();
+  
+      if( !docsSnapshot.empty ) {
+        const results = docsSnapshot.docs.map( doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        return {
+          data: results,
+          totalResults: docsSnapshot.size
+        }
+      } else {
+        throw new Error('No existe ningun documento en la colección');
+      }
+      
+    }
+    
+
     async getElementById(collectionName, documentId) {
         const docRef = this.db.collection(collectionName).doc(documentId);
         const docSnapshot = await docRef.get();
@@ -24,7 +46,7 @@ export class DBUtils {
         if (docSnapshot.exists) {
             return docSnapshot.data();
         } else {
-            return null;
+          throw new Error('No existe ningun documento con el ID: ', documentId);
         }
     }
 
