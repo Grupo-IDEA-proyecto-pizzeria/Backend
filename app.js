@@ -1,7 +1,7 @@
-// Paquetes de terceros
+// Third party packages
 import 'dotenv/config.js'
 
-// Nuestros recursos
+// Our resources
 import Server from './models/server.js';
 
 

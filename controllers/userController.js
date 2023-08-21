@@ -1,14 +1,12 @@
-import { response} from 'express';
+// Third party packages
+import { response } from 'express';
+import bcryptjs from "bcryptjs";
 
+// Our resources
 // UTILS
-import { DBUtils } from '../utils/DBUtils.js';
-import { Helper } from '../utils/Helper.js';
+import { dbUtils, helper } from '../utils/index.js';
+// MODELS
 import { User } from '../models/userModel.js';
-
-// CONFIGURATION
-const helper = new Helper();
-const dbUtils = new DBUtils();
-
 
 /**
  * Get all users
@@ -38,9 +36,9 @@ export const getAllUsers = async ( req, res = response ) => {
 // POST /api/users
 export const createUser = async ( req, res = response ) => {
     try {
-        const { name, email, password, state } = req.body
+        const { name, email, state } = req.body
 
-        const userCreate = new User(name, email, password, state);
+        const userCreate = new User(name, email, state);
 
         const user = helper.removeEmptyValues(userCreate);
         const userAdded = await dbUtils.addElement('users', user);

@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import { routerUsers } from '../routes/users.js';
 import { routerProducts } from '../routes/products.js';
+import { routerCarts } from '../routes/carts.js';
 
 class Server {
 
@@ -11,8 +12,11 @@ class Server {
     this.port = process.env.PORT;
 
     // Se agregan las siguientes variables para el uso de las rutas
-    this.usersPath = '/api/users';
-    this.productsPath = '/api/products';
+    this.path = {
+      users:    '/api/users',
+      products: '/api/products',
+      carts:    '/api/carts',
+    }
 
     // Middlewares
     this.middlewares();
@@ -34,9 +38,9 @@ class Server {
   
   routes() {
     // Rutas para el uso de app
-    // Ruta para usuarios
-    this.app.use( this.usersPath, routerUsers);
-    this.app.use( this.productsPath, routerProducts);
+    this.app.use( this.path.users, routerUsers);
+    this.app.use( this.path.products, routerProducts);
+    this.app.use( this.path.carts, routerCarts);
 
     // Error 404
     this.app.use('*', (req, res) => {
