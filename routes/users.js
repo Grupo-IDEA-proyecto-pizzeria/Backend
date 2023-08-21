@@ -1,20 +1,15 @@
 import { Router } from 'express';
-import { 
-  usuariosGet, 
-  usuariosPut,
-  usuariosPost, 
-  usuariosDelete
-} from '../controllers/userController.js';
+import * as UserController from '../controllers/userController.js';
 
-export const routerUsr = Router();
+export const routerUsers = Router();
 
-routerUsr.get('/', usuariosGet );
+routerUsers.get('/', UserController.getAllUsers );
 
-routerUsr.put('/:id', usuariosPut );
+// routerUsers.put('/:id', usuariosPut );
 
-routerUsr.post('/', usuariosPost );
+routerUsers.post('/', UserController.createUser );
 
-routerUsr.delete('/', usuariosDelete );
+// routerUsers.delete('/', usuariosDelete );
 
 
 
