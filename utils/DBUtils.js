@@ -46,7 +46,7 @@ export class DBUtils {
         if (docSnapshot.exists) {
             return docSnapshot.data();
         } else {
-          throw new Error('No existe ningun documento con el ID: ', documentId);
+          throw new Error('No existe ningun documento con ese ID');
         }
     }
 
@@ -57,6 +57,14 @@ export class DBUtils {
             id: docSnapshot.id,
             ...docSnapshot.data(),
         }));
+        if ( !querySnapshot.empty ) {
+          return {
+            data: results,
+            totalResults: querySnapshot.size
+          }
+        } else {
+          throw new Error('No existe ningun tipo de Category')
+        }
 
         return results.length > 0 ? results : null;
     }

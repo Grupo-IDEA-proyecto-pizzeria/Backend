@@ -36,49 +36,42 @@ export const getAllProducts = async ( req, res = response ) => {
 /**
  * Get all proudcts for category
  */
-// GET /api/products/:category
+// GET /api/products/:id/:category
 export const getProducts = async ( req, res = response ) => {
     try {
-        const  { category, startAfter = null } = req.params;
+        const  { id, category } = req.params;
 
-        const productsData = await dbUtils.getElementsByFieldWithPagination('products', 'category', category, 10, startAfter);
-        
-        res.status(200).json({
+        if ( id != ':id' ) {
+          const productDataById = await dbUtils.getElementById( 'products', id );
+
+          res.status(200).json({
             info: {
-                message: 'Productos obtenidos correctamente',
+                message: 'Producto por ID obtenido correctamente',
                 status: true,
             },
-            data: productsData.data,
-            metadata: productsData.metadata,
+            data: productDataById,
         });
+
+        }
+        else if ( id === ':id' && category != ':category' ){
+          const productsDataCategorys = await dbUtils.getElementsByField('products', 'category', category );
+
+          res.status(200).json({
+              info: {
+                  message: 'Productos por Category obtenidos correctamente',
+                  status: true,
+              },
+              data: productsDataCategorys.data,
+              total: productsDataCategorys.totalResults
+          });
+        } 
+
     } catch (error) {
         console.error('Error al obtener productos:', error);
         res.status(500).json({ error: 'Error al obtener productos' });
     }
-}
 
-/**
- * Get proudct for ID
- */
-// GET /api/products/:id
-export const getProductById = async ( req, res = response ) => {
-  try {
-      const  { id } = req.params;
 
-      // const productsData = await dbUtils.getElementsByFieldWithPagination('products', 'category', category, 10, startAfter);
-      const productData = await dbUtils.getElementById( 'products', id );
-      
-      res.status(200).json({
-          info: {
-              message: `El producto ID: ${id} se obtiene correctamente`,
-              status: true,
-          },
-          data: productData,
-      });
-  } catch (error) {
-      console.error('Error al obtener producto por ID: ', error);
-      res.status(500).json({ error: `Error al obtener producto por ID` });
-  }
 }
 
 /**
