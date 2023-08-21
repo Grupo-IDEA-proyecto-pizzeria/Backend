@@ -1,7 +1,7 @@
 import express from 'express'; 
 import cors from 'cors';
 
-import { routerUsr } from '../routes/usuarios.js';
+import { routerUsr } from '../routes/users.js';
 import { routerProducts } from '../routes/products.js';
 
 class Server {
