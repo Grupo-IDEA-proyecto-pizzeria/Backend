@@ -1,9 +1,9 @@
 
 export class User {
 
-  constructor ( name, email, state ) {
-    this.name = String(name);
-    this.email = String(email);
+  constructor ( token, anonymous, state ) {
+    this.token = String(token);
+    this.anonymous = Boolean(anonymous);
     this.state = Boolean(state);
   }
 

@@ -58,6 +58,30 @@ export const getProducts = async ( req, res = response ) => {
 }
 
 /**
+ * Get proudct for ID
+ */
+// GET /api/products/:id
+export const getProductById = async ( req, res = response ) => {
+  try {
+      const  { id } = req.params;
+
+      // const productsData = await dbUtils.getElementsByFieldWithPagination('products', 'category', category, 10, startAfter);
+      const productData = await dbUtils.getElementById( 'products', id );
+      
+      res.status(200).json({
+          info: {
+              message: `El producto ID: ${id} se obtiene correctamente`,
+              status: true,
+          },
+          data: productData,
+      });
+  } catch (error) {
+      console.error('Error al obtener producto por ID: ', error);
+      res.status(500).json({ error: `Error al obtener producto por ID` });
+  }
+}
+
+/**
  * Create a new product
  */
 // POST /api/products

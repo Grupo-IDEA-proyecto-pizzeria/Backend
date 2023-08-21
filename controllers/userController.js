@@ -36,9 +36,9 @@ export const getAllUsers = async ( req, res = response ) => {
 // POST /api/users
 export const createUser = async ( req, res = response ) => {
     try {
-        const { name, email, state } = req.body
+        const { token, anonymous, state } = req.body
 
-        const userCreate = new User(name, email, state);
+        const userCreate = new User(token, anonymous, state);
 
         const user = helper.removeEmptyValues(userCreate);
         const userAdded = await dbUtils.addElement('users', user);
