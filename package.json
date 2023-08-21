@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Webserver para la aplicación de pizzeria Crustopia",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "dev": "npx nodemon"
   },
   "repository": {
     "type": "git",
@@ -17,8 +19,14 @@
   },
   "homepage": "https://github.com/Grupo-IDEA-proyecto-pizzeria/Backend#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "firebase-admin": "^11.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

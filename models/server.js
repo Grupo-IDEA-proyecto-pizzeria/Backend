@@ -1,11 +1,22 @@
-const express = require('express'); 
-const cors = require('cors');
+import express from 'express'; 
+import cors from 'cors';
+
+import { routerUsers } from '../routes/users.js';
+import { routerProducts } from '../routes/products.js';
+import { routerCarts } from '../routes/carts.js';
 
 class Server {
 
   constructor() {
     this.app = express();
-    this.port = process.env.PORT ?? 1234;
+    this.port = process.env.PORT;
+
+    // Se agregan las siguientes variables para el uso de las rutas
+    this.path = {
+      users:    '/api/users',
+      products: '/api/products',
+      carts:    '/api/carts',
+    }
 
     // Middlewares
     this.middlewares();
@@ -15,7 +26,6 @@ class Server {
   }
 
   middlewares() {
-
     // CORS
     this.app.use( cors() );
 
@@ -24,20 +34,27 @@ class Server {
 
     // Directorio público
     this.app.use( express.static('public') );
-
   }
-
+  
   routes() {
     // Rutas para el uso de app
+    this.app.use( this.path.users, routerUsers);
+    this.app.use( this.path.products, routerProducts);
+    this.app.use( this.path.carts, routerCarts);
+
+    // Error 404
+    this.app.use('*', (req, res) => {
+      res.status(400).send('<h1>404 - Page not found</h1>');
+    });
 
   }
 
   listen() {
     this.app.listen( this.port, () => {
-      console.log(`Servidor corriendo en el puerto ${this.port}`);
+      console.log(`Servidor corriendo en http://localhost:${this.port}`);
     });
   }
 
 }
 
-module.exports = Server;
+export default Server;

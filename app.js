@@ -1,8 +1,9 @@
-// Paquetes de terceros
-require('dotenv').config();
+// Third party packages
+import 'dotenv/config.js'
 
-// Nuestros recursos
-const Server = require('./models/server');
+// Our resources
+import Server from './models/server.js';
+
 
 const server = new Server();
 

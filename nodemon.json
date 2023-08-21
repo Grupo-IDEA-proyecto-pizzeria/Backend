@@ -1,0 +1,6 @@
+{
+  "watch": ["./**/*.js"],
+  "ext": ".js, .ts, .json, .env",
+  "ignore": ["node_modules/*"],
+  "exec": "node --trace-warnings --inspect -r dotenv/config . dotenv_config_path=.env dotenv_config_debug=true"
+}
