@@ -16,61 +16,74 @@ const dbUtils = new DBUtils();
  */
 // GET /api/products/
 export const getAllProducts = async ( req, res = response ) => {
-  try {
-    const products = await dbUtils.getElements('products')
+    try {
+        const products = await dbUtils.getElements('products');
 
-    res.status(200).json({
-      info: {
-        message: 'Todos los productos obtenidos correctamente',
-        status: true
-      },
-      data: products.data,
-      totalResults: products.totalResults
-    })
-  } catch( error ) {
-    console.log('Error al obtener todos los productos', error);
-    res.status(500).json({ error: 'Error al obtener todos los productos'})
+        res.status(200).json({
+          info: {
+            message: 'Todos los productos obtenidos correctamente',
+            status: true
+          },
+          data: products.data,
+          totalResults: products.totalResults
+        });
+    } catch( error ) {
+        console.log('Error al obtener todos los productos', error);
+        res.status(500).json({ error: 'Error al obtener todos los productos'})
+    }
   }
-}
 
 /**
- * Get all proudcts for category
+ * Get proudct for ID
  */
-// GET /api/products/:id/:category
-export const getProducts = async ( req, res = response ) => {
+// GET /api/products/:id
+export const getProductsById = async ( req, res = response ) => {
+
     try {
-        const  { id, category } = req.params;
+        const  { id } = req.params;
 
-        if ( id != ':id' ) {
-          const productDataById = await dbUtils.getElementById( 'products', id );
+        const productDataById = await dbUtils.getElementById( 'products', id );
 
-          res.status(200).json({
+        res.status(200).json({
             info: {
-                message: 'Producto por ID obtenido correctamente',
+                message: 'ID Producto se obtiene correctamente',
                 status: true,
             },
             data: productDataById,
         });
 
-        }
-        else if ( id === ':id' && category != ':category' ){
-          const productsDataCategorys = await dbUtils.getElementsByField('products', 'category', category );
-
-          res.status(200).json({
-              info: {
-                  message: 'Productos por Category obtenidos correctamente',
-                  status: true,
-              },
-              data: productsDataCategorys.data,
-              total: productsDataCategorys.totalResults
-          });
-        } 
-
     } catch (error) {
-        console.error('Error al obtener productos:', error);
-        res.status(500).json({ error: 'Error al obtener productos' });
+        console.error('Error al obtener producto:', error);
+        res.status(500).json({ error: 'Error al obtener producto' });
     }
 
+}
+
+/**
+ * Get all proudcts for category
+ */
+// GET /api/products/:category
+export const getProductsByCategory = async ( req, res = response ) => {
+
+    try {
+        const  { category } = req.params;
+
+        const productsDataCategorys = await dbUtils.getElementsByField('products', 'category', category );
+
+        res.status(200).json({
+            info: {
+                message: 'Productos por Categoria obtenidos correctamente',
+                status: true,
+            },
+            data: productsDataCategorys.data,
+            total: productsDataCategorys.totalResults
+        });
+        
+
+    } catch (error) {
+        console.error('Error al obtener productos por categoria:', error);
+        res.status(500).json({ error: 'Error al obtener productos por categoria' });
+    }
 
 }
 
@@ -79,6 +92,7 @@ export const getProducts = async ( req, res = response ) => {
  */
 // POST /api/products
 export const createProduct = async ( req, res = response ) => {
+
     try {
         const { category, name,  price, img, description, state } = req.body
 
