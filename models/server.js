@@ -4,15 +4,17 @@ import cors from 'cors';
 import { routerUsers } from '../routes/users.js';
 import { routerProducts } from '../routes/products.js';
 import { routerCarts } from '../routes/carts.js';
+import { routerAuth } from '../routes/auth.js';
 
 class Server {
 
   constructor() {
     this.app = express();
-    this.port = process.env.PORT;
+    this.port = process.env.PORT || 8080;
 
     // Se agregan las siguientes variables para el uso de las rutas
     this.path = {
+      auth:     '/api/auth',
       users:    '/api/users',
       products: '/api/products',
       carts:    '/api/carts',
@@ -41,6 +43,7 @@ class Server {
     this.app.use( this.path.users, routerUsers);
     this.app.use( this.path.products, routerProducts);
     this.app.use( this.path.carts, routerCarts);
+    this.app.use( this.path.auth, routerAuth );
 
     // Error 404
     this.app.use('*', (req, res) => {

@@ -23,17 +23,17 @@ export class DBUtils {
       const docsSnapshot = await docRef.get();
   
       if( !docsSnapshot.empty ) {
-        const results = docsSnapshot.docs.map( doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
+          const results = docsSnapshot.docs.map( doc => ({
+              id: doc.id,
+              ...doc.data()
+          }));
 
-        return {
-          data: results,
-          totalResults: docsSnapshot.size
-        }
+          return {
+              data: results,
+              totalResults: docsSnapshot.size
+          }
       } else {
-        throw new Error('No existe ningun documento en la colección');
+          throw new Error('No existe ninguna colección existente en la BD');
       }
       
     }
@@ -46,7 +46,7 @@ export class DBUtils {
         if (docSnapshot.exists) {
             return docSnapshot.data();
         } else {
-          throw new Error('No existe ningun documento con ese ID');
+            throw new Error('No existe ningun documento con ese ID');
         }
     }
 
@@ -58,15 +58,15 @@ export class DBUtils {
             ...docSnapshot.data(),
         }));
         if ( !querySnapshot.empty ) {
-          return {
-            data: results,
-            totalResults: querySnapshot.size
-          }
+            return {
+                data: results,
+                totalResults: querySnapshot.size
+            }
         } else {
-          throw new Error('No existe ningun tipo de Category')
+            throw new Error('No existe ninguna colección en la base de datos')  
         }
 
-        return results.length > 0 ? results : null;
+        // return results.length > 0 ? results : null;
     }
 
     async getElementsByFieldWithPagination(collectionName, fieldName, fieldValue, pageSize, startAfterDocId = null) {
@@ -105,7 +105,7 @@ export class DBUtils {
 
     async deleteElement(collectionName, documentId) {
         const docRef = this.db.collection(collectionName).doc(documentId);
-        await docRef.delete();
+        await docRef.update({state: false});
     }
     
 }
