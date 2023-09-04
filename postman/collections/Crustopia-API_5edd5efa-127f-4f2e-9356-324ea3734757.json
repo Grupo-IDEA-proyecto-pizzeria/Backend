@@ -1,0 +1,587 @@
+{
+	"info": {
+		"_postman_id": "8decf2b7-a4b8-429b-858c-a71e0172bb0c",
+		"name": "Crustopia-API",
+		"description": "API de Crustopia (ID-for-Idea)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Endpoint Products",
+			"item": [
+				{
+					"name": "GET - All Products",
+					"id": "5330eb9a-865a-4288-a2d4-e919b945526f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0877ca59-5cf2-46d0-9efb-8b42df6e8abd",
+							"name": "GET - All Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "3730"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"e92-3UkjK/7O6WEP7Z/OZhN+VCRsAKs\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 04 Sep 2023 17:13:08 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "382"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"info\": {\n        \"message\": \"Todos los productos obtenidos correctamente\",\n        \"status\": true\n    },\n    \"data\": [\n        {\n            \"id\": \"2bXHMy6SMdPyl4QzokTK\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/gaseosa_buj1mj.png\",\n            \"name\": \"gaseosa\",\n            \"description\": \"Descripción del producto begbidas gaseosa\",\n            \"state\": true,\n            \"category\": \"bebidas\",\n            \"price\": 4000\n        },\n        {\n            \"id\": \"8DsyALb70Ex1zsOaGSMT\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/dona_guew6r.png\",\n            \"price\": 4000,\n            \"name\": \"dona\",\n            \"description\": \"Descripción del producto postres dona\",\n            \"state\": true,\n            \"category\": \"postres\"\n        },\n        {\n            \"id\": \"DyaTrsZziqUCZLobJC0n\",\n            \"price\": 4000,\n            \"name\": \"Mexicana\",\n            \"state\": true,\n            \"category\": \"pizza\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693407534/mexicana_ndwqka.png\",\n            \"description\": \"Sabor, sazón y picante, está es\"\n        },\n        {\n            \"id\": \"GGGjHYtpZnkwdzRf0KW5\",\n            \"img\": \"https://imag.bonviveur.com/presentacion-final-de-la-pizza-romana.jpg\",\n            \"price\": 7000,\n            \"name\": \"mixta\",\n            \"description\": \"Descripción del producto postres pizza\",\n            \"state\": true,\n            \"category\": \"pizzas\"\n        },\n        {\n            \"id\": \"LykjSR00cKjuoY5fQf0r\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/cerveza_crdljt.png\",\n            \"name\": \"cerveza\",\n            \"description\": \"Descripción del producto begbidas cerveza\",\n            \"state\": true,\n            \"category\": \"bebidas\",\n            \"price\": 3400\n        },\n        {\n            \"id\": \"Q5naU4PsqFLJWXIuOMoh\",\n            \"price\": 2000,\n            \"name\": \"queso\",\n            \"description\": \"Descripción del producto empanada de queso\",\n            \"state\": true,\n            \"category\": \"empanadas\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/queso_ekktrh.png\"\n        },\n        {\n            \"id\": \"d3tkIyRW3M0Gg6GY3c2P\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/pino_uxo7ed.png\",\n            \"price\": 3400,\n            \"name\": \"pino\",\n            \"description\": \"Descripción del producto empanada de pino\",\n            \"state\": true,\n            \"category\": \"empanadas\"\n        },\n        {\n            \"id\": \"dvzWGB2RzfRXJiU00Vw1\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/agua-mineral_tsuxac.png\",\n            \"price\": 2000,\n            \"name\": \"agua mineral\",\n            \"description\": \"Descripción del producto begbidas agual mineral\",\n            \"state\": true,\n            \"category\": \"bebidas\"\n        },\n        {\n            \"id\": \"grlqGEIZprkwXxNMO5Vs\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/helado_yifyle.png\",\n            \"price\": 2000,\n            \"name\": \"helado\",\n            \"description\": \"Descripción del producto postres helado\",\n            \"state\": true,\n            \"category\": \"postres\"\n        },\n        {\n            \"id\": \"k5nbNy2R5ZsjLvDxrtOS\",\n            \"name\": \"Hawaiana\",\n            \"description\": \"Deliciosa mezcla nacida en Canadá en 1962, contiene una base de queso fundido y tomate que se aliña con jamón y piña, en masa hecha con doble fermentado\",\n            \"state\": true,\n            \"category\": \"pizza\",\n            \"imgOld\": \"https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_1280.jpg\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693407534/hawaiana_jw4wrk.png\",\n            \"price\": 2000\n        },\n        {\n            \"id\": \"knhC4gs9RtI1tUuH3VyL\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/napolitana_ssib3e.png\",\n            \"name\": \"napolitana\",\n            \"description\": \"Descripción del producto empanada de napolitana\",\n            \"state\": true,\n            \"category\": \"empanadas\",\n            \"price\": 4000\n        },\n        {\n            \"id\": \"snqThseoHxZYJzbGAonA\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/gaseosa_buj1mj.png\",\n            \"price\": 0,\n            \"name\": \"otra\",\n            \"description\": \"Descripción del producto mejores otra\",\n            \"state\": false,\n            \"category\": \"mejores\"\n        },\n        {\n            \"id\": \"x30mK5Mpw4ZCjxiIFTnP\",\n            \"name\": \"Mozzarella\",\n            \"state\": true,\n            \"category\": \"pizza\",\n            \"description\": \"Una combinacion de frescura de Nápoles, hecha con doble queso mozzarella, tomate y albahaca, con el toque preciso de orégano y rúcula.\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693407534/mozzarella_pewsa2.png\",\n            \"price\": 3400\n        },\n        {\n            \"id\": \"yhGdyogYWPqPiW7NRl2F\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/cheescake_pbtnni.png\",\n            \"name\": \"cheescake\",\n            \"description\": \"Descripción del producto postres cheescake\",\n            \"state\": true,\n            \"category\": \"postres\",\n            \"price\": 3400\n        }\n    ],\n    \"totalResults\": 14\n}"
+						}
+					]
+				},
+				{
+					"name": "GET - Product by ID",
+					"id": "68c92df4-b21c-44fc-b562-591b8d02d546",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "k5nbNy2R5ZsjLvDxrtOS"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6e654ec7-5e0d-4ace-834f-824a87508cba",
+							"name": "GET - Product by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "k5nbNy2R5ZsjLvDxrtOS"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "514"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"202-4jOcXQX4+L8iub6EaGJcK2xRUoQ\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 04 Sep 2023 16:49:06 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "255"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"info\": {\n        \"message\": \"ID Producto se obtiene correctamente\",\n        \"status\": true\n    },\n    \"data\": {\n        \"name\": \"Hawaiana\",\n        \"description\": \"Deliciosa mezcla nacida en Canadá en 1962, contiene una base de queso fundido y tomate que se aliña con jamón y piña, en masa hecha con doble fermentado\",\n        \"id\": \"k5nbNy2R5ZsjLvDxrtOS\",\n        \"state\": true,\n        \"category\": \"pizza\",\n        \"imgOld\": \"https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_1280.jpg\",\n        \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693407534/hawaiana_jw4wrk.png\",\n        \"price\": 2000\n    }\n}"
+						},
+						{
+							"id": "d0047c73-a266-46bf-bb4f-227aec52ceb4",
+							"name": "GET - Product by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "k5nbNy2R5ZsjLvDxrtOS"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "514"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"202-4jOcXQX4+L8iub6EaGJcK2xRUoQ\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 04 Sep 2023 16:49:06 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "255"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"info\": {\n        \"message\": \"ID Producto se obtiene correctamente\",\n        \"status\": true\n    },\n    \"data\": {\n        \"name\": \"Hawaiana\",\n        \"description\": \"Deliciosa mezcla nacida en Canadá en 1962, contiene una base de queso fundido y tomate que se aliña con jamón y piña, en masa hecha con doble fermentado\",\n        \"id\": \"k5nbNy2R5ZsjLvDxrtOS\",\n        \"state\": true,\n        \"category\": \"pizza\",\n        \"imgOld\": \"https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_1280.jpg\",\n        \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693407534/hawaiana_jw4wrk.png\",\n        \"price\": 2000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GET - Products by Category",
+					"id": "46df483c-948c-488b-bdbb-96b93846508d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/category/:category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"category",
+								":category"
+							],
+							"variable": [
+								{
+									"key": "category",
+									"value": "empanadas"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "314cb87b-9bc6-4747-9e79-0c2c4daed4ba",
+							"name": "GET - Products by Category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/category/:category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"category",
+										":category"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "empanadas"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "829"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"33d-6gxhuSpjQLan2L6GjDbvvkolmbo\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 04 Sep 2023 16:50:34 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "232"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"info\": {\n        \"message\": \"Productos por Categoria obtenidos correctamente\",\n        \"status\": true\n    },\n    \"data\": [\n        {\n            \"id\": \"Q5naU4PsqFLJWXIuOMoh\",\n            \"price\": 2000,\n            \"name\": \"queso\",\n            \"description\": \"Descripción del producto empanada de queso\",\n            \"state\": true,\n            \"category\": \"empanadas\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/queso_ekktrh.png\"\n        },\n        {\n            \"id\": \"d3tkIyRW3M0Gg6GY3c2P\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/pino_uxo7ed.png\",\n            \"price\": 3400,\n            \"name\": \"pino\",\n            \"description\": \"Descripción del producto empanada de pino\",\n            \"state\": true,\n            \"category\": \"empanadas\"\n        },\n        {\n            \"id\": \"knhC4gs9RtI1tUuH3VyL\",\n            \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/napolitana_ssib3e.png\",\n            \"name\": \"napolitana\",\n            \"description\": \"Descripción del producto empanada de napolitana\",\n            \"state\": true,\n            \"category\": \"empanadas\",\n            \"price\": 4000\n        }\n    ],\n    \"total\": 3\n}"
+						}
+					]
+				},
+				{
+					"name": "POST - New Product",
+					"id": "52a88b5f-b84b-4ed7-aeac-d0aa10c539cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/gaseosa_buj1mj.png\",\n    \"name\": \"otra\",\n    \"category\": \"mejores\",\n    \"description\": \"Descripción del producto mejores otra\",\n    \"price\": 0,\n    \"state\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e516f70a-6447-4bfb-9c37-fe088546f6b5",
+							"name": "POST - New Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/gaseosa_buj1mj.png\",\n    \"name\": \"otra\",\n    \"category\": \"mejores\",\n    \"description\": \"Descripción del producto mejores otra\",\n    \"price\": 0,\n    \"state\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "305"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"131-JOWw3mBzeDB9OGTbNK9l1282HHI\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 04 Sep 2023 12:21:18 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "1146"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"info\": {\n        \"message\": \"Producto agregado correctamente\",\n        \"status\": true\n    },\n    \"data\": {\n        \"id\": \"snqThseoHxZYJzbGAonA\",\n        \"category\": \"mejores\",\n        \"name\": \"otra\",\n        \"price\": 0,\n        \"img\": \"https://res.cloudinary.com/jxadev/image/upload/v1693421756/gaseosa_buj1mj.png\",\n        \"description\": \"Descripción del producto mejores otra\",\n        \"state\": false\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "6a4cdf62-5ee8-4834-bfea-7e444f3752a7",
+			"description": "Endpoints para los productos  \n  \n\\- /api/products \\[GET\\]\n\n\\- /api/products/:id \\[GET\\]\n\n\\- /api/products/category/:category \\[GET\\]\n\n\\- /api/products \\[POST\\]"
+		},
+		{
+			"name": "Endpoint Carts",
+			"item": [
+				{
+					"name": "GET - All Carts",
+					"id": "3469af94-7b84-4924-bd7d-2d790bc82255",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/carts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"carts"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6ffe1613-dee5-4446-a932-eabb2a46a8de",
+							"name": "GET - All Carts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/carts",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"carts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "982"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3d6-2xpGHwpiwMo7r0CYS6mI8EqpvXk\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 04 Sep 2023 16:47:42 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "1267"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"info\": {\n        \"message\": \"Todos los carritos obtenidos correctamente\",\n        \"status\": true\n    },\n    \"data\": [\n        {\n            \"id\": \"6V1IDfl3sECudeAaKsgg\",\n            \"total\": 10400,\n            \"state\": true,\n            \"user\": \"userPrueba\",\n            \"items\": [\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 2,\n                    \"price\": 3400,\n                    \"subtotal\": 6400\n                },\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 1,\n                    \"price\": 4000,\n                    \"subtotal\": 4000\n                }\n            ]\n        },\n        {\n            \"id\": \"NPEwJmZtnyJ1rnNk4K6u\",\n            \"total\": 10400,\n            \"state\": true,\n            \"user\": \"userPrueba\",\n            \"items\": [\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 2,\n                    \"price\": 3400,\n                    \"subtotal\": 6400\n                },\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 1,\n                    \"price\": 4000,\n                    \"subtotal\": 4000\n                }\n            ]\n        },\n        {\n            \"id\": \"bvCbzDSYQgSJnzfURImo\",\n            \"state\": true,\n            \"user\": \"userID\",\n            \"total\": 7200,\n            \"items\": [\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 1,\n                    \"price\": 50,\n                    \"subtotal\": 50\n                },\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 1,\n                    \"price\": 4000,\n                    \"subtotal\": 4000\n                }\n            ]\n        },\n        {\n            \"id\": \"dw498YZEHALNbQc5FlHp\",\n            \"state\": true,\n            \"total\": 7200,\n            \"user\": \"anonymous\",\n            \"items\": [\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 1,\n                    \"price\": 50,\n                    \"subtotal\": 50\n                },\n                {\n                    \"product\": \"podructName\",\n                    \"quantity\": 1,\n                    \"price\": 4000,\n                    \"subtotal\": 4000\n                }\n            ]\n        }\n    ],\n    \"totalResults\": 4\n}"
+						}
+					]
+				}
+			],
+			"id": "a05d0784-97a5-4b11-8a9d-0bdef44cf0ae",
+			"description": "Endpoints para el carrito de compra  \n\\- /api/carts \\[POST\\]\n\n\\- /api/carts \\[GET\\]"
+		},
+		{
+			"name": "Endpoint Users",
+			"item": [],
+			"id": "1522ccf2-e799-4aff-ba3b-f9e8f7cf03ff",
+			"description": "_**Endpoints sin funcionar (para senguda etapa)**_"
+		},
+		{
+			"name": "Endpoint Companys",
+			"item": [],
+			"id": "0a11712d-202d-4da3-aa18-8181fb8ca360"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c38b9b6c-8a96-4776-9fd5-4df0845dbda2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b5147642-105f-403a-a73b-828e12ec556e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f1467908-e557-4e63-af8e-1eec2590bdc0",
+			"key": "devUrl",
+			"value": "http://localhost:3001"
+		},
+		{
+			"id": "29854f74-4db5-46e9-b626-5910154d6930",
+			"key": "prodUrl",
+			"value": "https://api-qa-lg2h-dev.fl0.io"
+		}
+	]
+}
