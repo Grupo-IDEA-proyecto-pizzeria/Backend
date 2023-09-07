@@ -1,0 +1,12 @@
+# node_modules
+node_modules
+
+# local env files
+.env
+.env.local
+
+# Log files
+npm-debug.log*
+
+# Editor directories and files
+.vscode
