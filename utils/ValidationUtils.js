@@ -11,12 +11,12 @@ export class ValidationUtils {
         return true;
     }
 
-    validateFields( req, res, next ) {
-      const errors = validationResult(req);
-      if ( !errors.isEmpty() ) {
-        return res.status(400).json(errors);
-      }
-      next()
+    validateField( req, res, next ) {
+        const errors = validationResult(req);
+        if ( !errors.isEmpty() ) {
+            return res.status(400).json(errors);
+        }
+        next()
     }
 
 }

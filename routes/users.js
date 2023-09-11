@@ -19,7 +19,7 @@ routerUsers.get('/', UserController.getAllUsers );
 routerUsers.post('/', [
   // check('name', 'El campo name es obligatorio').not().isEmpty(),
   // check('email').isEmail(),
-  validationUtils.validateFields
+  // validationUtils.validateField
 ], UserController.createUser );
 
 // routerUsers.delete('/', usuariosDelete );

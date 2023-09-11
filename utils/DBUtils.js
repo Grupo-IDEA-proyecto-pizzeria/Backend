@@ -46,7 +46,7 @@ export class DBUtils {
         if (docSnapshot.exists) {
             return docSnapshot.data();
         } else {
-            throw new Error('No existe ningun documento con ese ID');
+            throw new Error('No existe ningún documento con ese ID');
         }
     }
 
@@ -63,8 +63,11 @@ export class DBUtils {
                 totalResults: querySnapshot.size
             }
         } else {
-            throw new Error('No existe ninguna colección en la base de datos')  
+            return results.length > 0 ? results : null;
         }
+        // else {
+        //     throw new Error('No existe ningún campo en esa colección')  
+        // }
 
         // return results.length > 0 ? results : null;
     }

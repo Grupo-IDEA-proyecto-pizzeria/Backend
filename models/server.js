@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import { routerUsers } from '../routes/users.js';
-import { routerProducts } from '../routes/products.js';
+import { productsRouter } from '../routes/products.js';
 import { routerCarts } from '../routes/carts.js';
 
 class Server {
@@ -39,7 +39,7 @@ class Server {
   routes() {
     // Rutas para el uso de app
     this.app.use( this.path.users, routerUsers);
-    this.app.use( this.path.products, routerProducts);
+    this.app.use( this.path.products, productsRouter);
     this.app.use( this.path.carts, routerCarts);
 
     // Error 404

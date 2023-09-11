@@ -17,7 +17,7 @@ routerCarts.get('/', CartController.getAllCarts );
 
 routerCarts.post('/', [
   check('user', 'El campo user es obligatorio').not().isEmpty(),
-  validationUtils.validateFields
+  validationUtils.validateField
 ], CartController.createCart );
 
 // routerCarts.delete('/', cartsDelete );

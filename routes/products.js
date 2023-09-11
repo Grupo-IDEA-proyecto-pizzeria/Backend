@@ -1,14 +1,20 @@
 import { Router } from 'express';
-import * as ProductController from '../controllers/productController.js';
+import { ProductController } from '../controllers/productController.js';
+import { ProductModel } from '../models/productModel.js';
+import { validationUtils } from '../utils/index.js';
+import { check, checkSchema } from 'express-validator';
 
-export const routerProducts = Router();
+export const productsRouter = Router();
 
-routerProducts.get('/', ProductController.getAllProducts);
+productsRouter.get('/', ProductController.getAllProducts);
 
-routerProducts.get('/:id', ProductController.getProductsById);
+productsRouter.get('/:id', ProductController.getProductsById);
 
-routerProducts.get('/category/:category', ProductController.getProductsByCategory);
+productsRouter.get('/category/:category', ProductController.getProductsByCategory);
 
-routerProducts.post('/', ProductController.createProduct);
+productsRouter.post('/', [
+    ProductModel.validator(),
+    validationUtils.validateField
+], ProductController.createProduct);
 
 
