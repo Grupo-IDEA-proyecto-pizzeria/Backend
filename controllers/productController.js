@@ -24,8 +24,8 @@ export class ProductController {
 
             res.status(200).json({
               info: {
-                message: 'Todos los productos obtenidos correctamente',
-                status: true
+                  message: 'Todos los productos obtenidos correctamente',
+                  status: true
               },
               data: products.data,
               totalResults: products.totalResults
@@ -41,7 +41,7 @@ export class ProductController {
      * Get proudct for ID
      */
     // GET /api/products/:id
-    static async getProductsById ( req, res = response ) {
+    static async getProductById ( req, res = response ) {
 
         try {
             const  { id } = req.params;
@@ -98,9 +98,9 @@ export class ProductController {
     static async createProduct ( req, res = response ) {
 
         try {
-            const { category, name,  price, img, description, state } = req.body
+            const { category, name,  price, img, description } = req.body
 
-            const productCreate = new ProductModel(category, name, price, img, description, state);
+            const productCreate = new ProductModel(category, name, price, img, description);
 
             // veirificar si el producto name existe en la base de datos
             const productExist = await dbUtils.getElementsByField('productsTest', 'name', productCreate.name)
@@ -131,6 +131,78 @@ export class ProductController {
             console.error('Error al crear producto:', error);
             res.status(500).json({ error: 'Error al crear producto' });
         }
+    }
+
+    /**
+    * Edit product by id
+    */
+    // UPDATE /api/products/:id
+    static async editProductById ( req, res = response ) {
+
+        try {
+            const { id } = req.params;
+            const { category, name,  price, img, description } = req.body
+
+            const productEdit = new ProductModel(category, name, price, img, description);
+
+            // veirificar si el producto name existe en la base de datos
+            const productExist = await dbUtils.getElementsByField('productsTest', 'name', productEdit.name)
+
+            if ( productExist ) {
+                res.status(409).json({
+                    info: {
+                        message: `El producto con el nombre: ${name}, ya existe`,
+                        status: false,
+                    }
+                });
+            } else {
+
+              const product = helper.removeEmptyValues(productEdit);
+  
+              const productUpdated = await dbUtils.updateElement('productsTest', id, product);
+  
+              res.status(200).json({
+                  info: {
+                      message: 'Producto actualizado correctamente',
+                      status: true,
+                  },
+                  data: productUpdated,
+              });
+
+            }
+
+
+        } catch (error) {
+            console.error('Error al editar producto:', error);
+            res.status(500).json({ error: 'Error al editar producto' });
+        }
+
+    }
+
+    /**
+    * Delete product by id
+    */
+    // DELETE /api/products/:id
+    static async deleteProductById ( req, res = response ) {
+
+        try {
+            const { id } = req.params;
+
+            const productDeleted = await dbUtils.deleteElement('productsTest', id);
+
+            res.status(200).json({
+                info: {
+                    message: 'Producto eliminado correctamente',
+                    status: true,
+                },
+                data: productDeleted,
+            });
+
+        } catch (error) {
+            console.error('Error al eliminar producto:', error);
+            res.status(500).json({ error: 'Error al eliminar producto' });
+        }
+
     }
 
 }

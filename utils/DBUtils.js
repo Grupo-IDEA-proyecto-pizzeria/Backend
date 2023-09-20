@@ -108,7 +108,10 @@ export class DBUtils {
 
     async deleteElement(collectionName, documentId) {
         const docRef = this.db.collection(collectionName).doc(documentId);
-        await docRef.update({state: false});
+        // Delete logic document in firebase
+        // await docRef.update({state: false});
+        // Delete phisical document in firebase
+        await docRef.delete();
     }
     
 }

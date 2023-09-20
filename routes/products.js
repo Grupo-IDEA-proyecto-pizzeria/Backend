@@ -8,7 +8,7 @@ export const productsRouter = Router();
 
 productsRouter.get('/', ProductController.getAllProducts);
 
-productsRouter.get('/:id', ProductController.getProductsById);
+productsRouter.get('/:id', ProductController.getProductById);
 
 productsRouter.get('/category/:category', ProductController.getProductsByCategory);
 
@@ -17,4 +17,10 @@ productsRouter.post('/', [
     validationUtils.validateField
 ], ProductController.createProduct);
 
+productsRouter.put('/:id', [
+    ProductModel.validator(),
+    validationUtils.validateField
+], ProductController.editProductById);
+
+productsRouter.delete('/:id', ProductController.deleteProductById);
 

@@ -1,24 +1,14 @@
 import { checkSchema } from 'express-validator'
 export class ProductModel {
-    constructor ( category, name, price, img, description, state ) {
+    constructor ( category, name, price, img, description ) {
         this.category = String(category);
         this.name = String(name);
         this.price = Number(price);
         this.img = String(img);
         this.description = String(description);
-        this.state = Boolean(state);
+        this.stock = 99;
+        this.state = true;
     }
-
-    // static async validate() {
-    //     checkSchema({
-    //         category: { notEmpty: { errorMessage: 'Category está vacio' }  },
-    //         name: { notEmpty: { errorMessage: 'Name está vacio' } },
-    //         price: { notEmpty: { errorMessage: 'Price está vacio' } },
-    //         img: { notEmpty: { errorMessage: 'Img está vacio' } },
-    //         description: { notEmpty: { errorMessage: 'Description está vacio' } },
-    //         state: { isBoolean: { options: { strict: true } } }
-    //     });
-    // }
 
     static validator() {
         return checkSchema({
@@ -47,13 +37,8 @@ export class ProductModel {
                 isString: { errorMessage: 'Description no es un string'},
                 trim: true,
                 notEmpty: { errorMessage: 'Description está vacio' },
-            },
-            // state: {
-            //     exists: { errorMessage: 'State es obligatorio' },
-            //     custom: { options: (val) => (val === true || val === false) ? true : false, errorMessage: 'State no es booleano' },
-            //     // isBoolean: { options: { strict: true }, errorMessage: 'State no es un boolean' }
-            // },
-        })
+            }
+        });
     }
 
 }
