@@ -46,7 +46,8 @@ export class DBUtils {
         if (docSnapshot.exists) {
             return docSnapshot.data();
         } else {
-            throw new Error('No existe ningún documento con ese ID');
+            return null;
+            // throw new Error('No existe ningún documento con ese ID');
         }
     }
 

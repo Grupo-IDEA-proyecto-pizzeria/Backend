@@ -14,13 +14,13 @@ export const routerCarts = Router();
 
 routerCarts.get('/', CartController.getAllCarts );
 
-// routerCarts.put('/:id', cartsPut );
-
 routerCarts.post('/', [
     CartModel.validator(),
     validationUtils.validateField
 ], CartController.createCart );
 
-// routerCarts.delete('/', cartsDelete );
+// routerCarts.put('/:id', cartsPut );
+
+routerCarts.delete('/:id', CartController.deleteCart );
 
 

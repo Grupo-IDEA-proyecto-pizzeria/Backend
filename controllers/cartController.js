@@ -58,4 +58,45 @@ export class CartController {
             res.status(500).json({ error: 'Error al crear carrito' });
         }
     }
+
+    /**
+     * Delete a Cart
+     */
+    // DELETE /api/carts/:id
+    static deleteCart = async ( req, res = response ) => {
+        try {
+            const { id } = req.params;
+    
+            // veirificar si el carrito existe en la base de datos
+            const cartExist = await dbUtils.getElementById('carts', id)
+
+            if ( !cartExist ) {
+                
+                res.status(409).json({
+                    info: {
+                        message: `Carrito no encontrado`,
+                        status: false,
+                    }
+                });
+
+            } else {
+
+                const cartDeleted = await dbUtils.deleteElement('carts', id);
+    
+                res.status(201).json({
+                    info: {
+                        message: 'Carrito eliminado correctamente',
+                        status: true,
+                    },
+                    data: cartDeleted,
+                });
+
+            }
+
+        } catch (error) {
+            console.error('Error al eliminar carrito:', error);
+            res.status(500).json({ error: 'Error al eliminar carrito' });
+        }
+    }
+
 }
