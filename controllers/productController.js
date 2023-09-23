@@ -102,7 +102,7 @@ export class ProductController {
 
             const productCreate = new ProductModel(category, name, price, img, description);
 
-            // veirificar si el producto name existe en la base de datos
+            // verificar si el producto name existe en la base de datos
             const productExist = await dbUtils.getElementsByField('productsTest', 'name', productCreate.name)
 
             if ( productExist ) {
