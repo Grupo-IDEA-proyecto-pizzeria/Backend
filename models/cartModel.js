@@ -6,6 +6,7 @@ export class CartModel {
       this.user = user;
       this.items = items;
       this.total = Number(total);
+      this.state = true;
   }
 
   static validator() {
