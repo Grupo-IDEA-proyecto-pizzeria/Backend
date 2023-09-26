@@ -143,34 +143,34 @@ export class ProductController {
             const { id } = req.params;
             const { category, name,  price, img, description } = req.body
 
-            const productEdit = new ProductModel(category, name, price, img, description);
+            const productExist = await dbUtils.getElementById('productsTest', id);
 
-            // veirificar si el producto name existe en la base de datos
-            const productExist = await dbUtils.getElementsByField('productsTest', 'name', productEdit.name)
+            if (!productExist) {
 
-            if ( productExist ) {
                 res.status(409).json({
                     info: {
-                        message: `El producto con el nombre: ${name}, ya existe`,
+                        message: 'Producto no encontrado',
                         status: false,
-                    }
+                    },
                 });
+
             } else {
 
-              const product = helper.removeEmptyValues(productEdit);
-  
-              const productUpdated = await dbUtils.updateElement('productsTest', id, product);
-  
-              res.status(200).json({
-                  info: {
-                      message: 'Producto actualizado correctamente',
-                      status: true,
-                  },
-                  data: productUpdated,
-              });
+                const productEdit = new ProductModel(category, name, price, img, description);
+
+                const product = helper.removeEmptyValues(productEdit);
+
+                const productUpdated = await dbUtils.updateElement('productsTest', id, product);
+
+                res.status(202).json({
+                    info: {
+                        message: 'Producto actualizado correctamente',
+                        status: true,
+                    },
+                    data: productUpdated,
+                });
 
             }
-
 
         } catch (error) {
             console.error('Error al editar producto:', error);
@@ -188,15 +188,31 @@ export class ProductController {
         try {
             const { id } = req.params;
 
-            const productDeleted = await dbUtils.deleteElement('productsTest', id);
+            const productExist = await dbUtils.getElementById('productsTest', id);
 
-            res.status(200).json({
-                info: {
-                    message: 'Producto eliminado correctamente',
-                    status: true,
-                },
-                data: productDeleted,
-            });
+            if (!productExist) {
+                
+                  res.status(201).json({
+                      info: {
+                          message: 'Producto no encontrado',
+                          status: false,
+                      },
+                  });
+  
+            } else {
+
+                const productDeleted = await dbUtils.deleteElement('productsTest', id);
+    
+                res.status(200).json({
+                    info: {
+                        message: 'Producto eliminado correctamente',
+                        status: true,
+                    },
+                    data: productDeleted,
+                });
+            }
+
+
 
         } catch (error) {
             console.error('Error al eliminar producto:', error);
