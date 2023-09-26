@@ -9,6 +9,8 @@ import { CartController } from '../controllers/cartController.js';
 // UTILS
 import { validationUtils } from '../utils/index.js';
 import { CartModel } from '../models/cartModel.js';
+import Middleware from '../middleware/auth.js';
+
 
 export const routerCarts = Router();
 
@@ -20,6 +22,7 @@ routerCarts.post('/', [
 ], CartController.createCart );
 
 routerCarts.put('/:id', [
+    Middleware.decodeToken,
     CartModel.validator(),
     validationUtils.validateField
 ], CartController.editCartById );
