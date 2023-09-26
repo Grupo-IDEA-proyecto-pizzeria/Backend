@@ -19,7 +19,10 @@ routerCarts.post('/', [
     validationUtils.validateField
 ], CartController.createCart );
 
-// routerCarts.put('/:id', cartsPut );
+routerCarts.put('/:id', [
+    CartModel.validator(),
+    validationUtils.validateField
+], CartController.editCartById );
 
 routerCarts.delete('/:id', CartController.deleteCart );
 

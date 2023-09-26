@@ -60,6 +60,51 @@ export class CartController {
     }
 
     /**
+    * Edit cart by id
+    */
+    // UPDATE /api/carts/:id
+    static async editCartById ( req, res = response ) {
+
+        try {
+            const { id } = req.params;
+            const { user, items, total } = req.body
+            
+            const cartExist = await dbUtils.getElementById('carts', id);
+
+            if (!cartExist) {
+
+                res.status(201).json({
+                    info: {
+                        message: 'Elemento no encontrado',
+                        status: false,
+                    },
+                });
+                
+            } else {
+
+                const cartEdit = new CartModel(user, items, total);
+                const cart = helper.removeEmptyValues(cartEdit);
+    
+                const productUpdated = await dbUtils.updateElement('carts', id, cart);
+    
+                res.status(201).json({
+                    info: {
+                        message: 'Carrito actualizado correctamente',
+                        status: true,
+                    },
+                    data: productUpdated,
+                });
+
+            }
+
+        } catch (error) {
+            console.error('Error al editar producto:', error);
+            res.status(500).json({ error: 'Error al editar producto' });
+        }
+
+    }
+
+    /**
      * Delete a Cart
      */
     // DELETE /api/carts/:id
