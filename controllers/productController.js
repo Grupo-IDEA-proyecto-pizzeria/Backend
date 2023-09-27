@@ -9,7 +9,7 @@ import { ProductModel } from '../models/productModel.js';
 const helper = new Helper();
 const dbUtils = new DBUtils();
 
-
+// const { products } = helper.setCollections(process.env.NODE_ENV);
 
 export class ProductController {
 
@@ -19,7 +19,7 @@ export class ProductController {
     // GET /api/products/
     static async getAllProducts ( req, res = response ) {
         try {
-            const products = await dbUtils.getElements('products');
+            const products = await dbUtils.getElements('productsTest');
             console.log(products);
 
             res.status(200).json({
@@ -46,7 +46,7 @@ export class ProductController {
         try {
             const  { id } = req.params;
 
-            const productDataById = await dbUtils.getElementById( 'products', id );
+            const productDataById = await dbUtils.getElementById( 'productsTest', id );
 
             res.status(200).json({
                 info: {
@@ -147,7 +147,7 @@ export class ProductController {
 
             if (!productExist) {
 
-                res.status(409).json({
+                res.status(404).json({
                     info: {
                         message: 'Producto no encontrado',
                         status: false,
@@ -192,7 +192,7 @@ export class ProductController {
 
             if (!productExist) {
                 
-                  res.status(201).json({
+                  res.status(404).json({
                       info: {
                           message: 'Producto no encontrado',
                           status: false,

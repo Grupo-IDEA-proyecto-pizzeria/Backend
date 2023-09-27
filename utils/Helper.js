@@ -10,4 +10,27 @@ export class Helper {
         return newObj;
     }
 
+    setCollections(env) {
+        let collections = {};
+
+        switch (env) {
+            case 'production':
+                return collections = {
+                    products: 'products',
+                    carts: 'carts',
+                    // users: 'users',
+                }
+
+            case 'development':
+                return collections = {
+                    products: 'productsTest',
+                    carts: 'cartsTest',
+                    // users: 'users',
+                }
+          
+            default:
+                break;
+        }
+    }
+
 }
