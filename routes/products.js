@@ -14,18 +14,18 @@ productsRouter.get('/:id', ProductController.getProductById);
 productsRouter.get('/category/:category', ProductController.getProductsByCategory);
 
 productsRouter.post('/', [
-    // Middleware.decodeToken,
+    Middleware.decodeToken,
     ProductModel.validator(),
     validationUtils.validateField
 ], ProductController.createProduct);
 
 productsRouter.put('/:id', [
-    // Middleware.decodeToken,
+    Middleware.decodeToken,
     ProductModel.validator(),
     validationUtils.validateField
 ], ProductController.editProductById);
 
 productsRouter.delete('/:id', [
-    // Middleware.decodeToken
+    Middleware.decodeToken
 ], ProductController.deleteProductById);
 

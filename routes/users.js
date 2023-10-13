@@ -4,7 +4,7 @@ import { check } from 'express-validator';
 
 // Our resources
 // CONTROLLERS
-import * as UserController from '../controllers/userController.js';
+import { UserController } from '../controllers/userController.js';
 
 // UTILS
 import { validationUtils } from '../utils/index.js';
@@ -13,6 +13,7 @@ import { validationUtils } from '../utils/index.js';
 export const routerUsers = Router();
 
 routerUsers.get('/', UserController.getAllUsers );
+
 
 // routerUsers.put('/:id', usuariosPut );
 
@@ -23,6 +24,13 @@ routerUsers.post('/', [
 ], UserController.createUser );
 
 // routerUsers.delete('/', usuariosDelete );
+
+
+/** ****************************
+ *        Testing
+ **************************** */
+routerUsers.post('/token', UserController.tokenUser );
+
 
 
 

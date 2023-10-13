@@ -17,19 +17,19 @@ export const routerCarts = Router();
 routerCarts.get('/', CartController.getAllCarts );
 
 routerCarts.post('/', [
-    // Middleware.decodeToken,
+    Middleware.decodeToken,
     CartModel.validator(),
     validationUtils.validateField
 ], CartController.createCart );
 
 routerCarts.put('/:id', [
-    // Middleware.decodeToken,
+    Middleware.decodeToken,
     CartModel.validator(),
     validationUtils.validateField
 ], CartController.editCartById );
 
 routerCarts.delete('/:id', [
-    // Middleware.decodeToken
+    Middleware.decodeToken
 ], CartController.deleteCart );
 
 
