@@ -7,11 +7,11 @@ import bcryptjs from "bcryptjs";
 // Our resources
 // UTILS
 import { dbUtils, helper } from '../utils/index.js';
+import NameCollections from '../utils/envionment.js';
 // MODELS
 import { User } from '../models/userModel.js';
 import { signInWithEmailAndPassword } from '@firebase/auth';
 import { auth } from '../config/firebase-auth.js';
-
 
 
 
@@ -24,7 +24,7 @@ export class UserController {
   // GET /api/users/
   static async getAllUsers (req, res = response) {
     try {
-      const users = await dbUtils.getElements('users')
+      const users = await dbUtils.getElements(NameCollections.users)
 
       res.status(200).json({
         info: {
@@ -55,7 +55,7 @@ export class UserController {
       const user = helper.removeEmptyValues(userCreate);
 
       // verificar si existe el usaurio en la base de datos
-      const userExist = await dbUtils.getElementsByField('users', 'email', user.email)
+      const userExist = await dbUtils.getElementsByField(NameCollections.users, 'email', user.email)
 
       if ( userExist ) {
         res.status(409).json({
@@ -66,7 +66,7 @@ export class UserController {
         });
     } else {
 
-      const userAdded = await dbUtils.addElement('users', user);
+      const userAdded = await dbUtils.addElement(NameCollections.users, user);
 
       res.status(201).json({
         info: {

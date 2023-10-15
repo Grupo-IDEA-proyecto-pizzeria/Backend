@@ -4,6 +4,7 @@ import { response} from 'express';
 import { DBUtils } from '../utils/DBUtils.js';
 import { Helper } from '../utils/Helper.js';
 import { CartModel } from '../models/cartModel.js';
+import NameCollections from '../utils/envionment.js';
 
 // CONFIGURATION
 const helper = new Helper();
@@ -17,7 +18,7 @@ export class CartController {
     // GET /api/carts/
     static getAllCarts = async ( req, res = response ) => {
       try {
-          const carts = await dbUtils.getElements('carts')
+          const carts = await dbUtils.getElements(NameCollections.carts)
     
           res.status(200).json({
               info: {
@@ -44,7 +45,7 @@ export class CartController {
             const cartCreate = new CartModel(user, items, total);
     
             const cartEmptyValues = helper.removeEmptyValues(cartCreate);
-            const cartAdded = await dbUtils.addElement('carts', cartEmptyValues);
+            const cartAdded = await dbUtils.addElement(NameCollections.carts, cartEmptyValues);
     
             res.status(201).json({
                 info: {
@@ -69,7 +70,7 @@ export class CartController {
             const { id } = req.params;
             const { user, items, total } = req.body
             
-            const cartExist = await dbUtils.getElementById('carts', id);
+            const cartExist = await dbUtils.getElementById(NameCollections.carts, id);
 
             if (!cartExist) {
 
@@ -85,7 +86,7 @@ export class CartController {
                 const cartEdit = new CartModel(user, items, total);
                 const cart = helper.removeEmptyValues(cartEdit);
     
-                const productUpdated = await dbUtils.updateElement('carts', id, cart);
+                const productUpdated = await dbUtils.updateElement(NameCollections.carts, id, cart);
     
                 res.status(201).json({
                     info: {
@@ -113,7 +114,7 @@ export class CartController {
             const { id } = req.params;
     
             // veirificar si el carrito existe en la base de datos
-            const cartExist = await dbUtils.getElementById('carts', id)
+            const cartExist = await dbUtils.getElementById(NameCollections.carts, id)
 
             if ( !cartExist ) {
                 
@@ -126,7 +127,7 @@ export class CartController {
 
             } else {
 
-                const cartDeleted = await dbUtils.deleteElement('carts', id);
+                const cartDeleted = await dbUtils.deleteElement(NameCollections.carts, id);
     
                 res.status(201).json({
                     info: {

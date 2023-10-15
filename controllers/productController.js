@@ -4,6 +4,7 @@ import { response } from 'express';
 import { DBUtils } from '../utils/DBUtils.js';
 import { Helper } from '../utils/Helper.js';
 import { ProductModel } from '../models/productModel.js';
+import NameCollections from '../utils/envionment.js';
 
 // CONFIGURATION
 const helper = new Helper();
@@ -19,8 +20,7 @@ export class ProductController {
     // GET /api/products/
     static async getAllProducts ( req, res = response ) {
         try {
-            const products = await dbUtils.getElements('productsTest');
-            console.log(products);
+            const products = await dbUtils.getElements(NameCollections.products);
 
             res.status(200).json({
               info: {
@@ -46,15 +46,26 @@ export class ProductController {
         try {
             const  { id } = req.params;
 
-            const productDataById = await dbUtils.getElementById( 'productsTest', id );
+            const productDataById = await dbUtils.getElementById(NameCollections.products, id);
 
-            res.status(200).json({
-                info: {
-                    message: 'ID Producto se obtiene correctamente',
-                    status: true,
-                },
-                data: productDataById,
-            });
+            if (!productDataById) {
+
+                res.status(404).json({
+                    info: {
+                        message: 'Producto no encontrado',
+                        status: false,
+                    },
+                });
+
+            } else {
+                res.status(200).json({
+                    info: {
+                        message: 'ID Producto se obtiene correctamente',
+                        status: true,
+                    },
+                    data: productDataById,
+                });
+            }
 
         } catch (error) {
             console.error('Error al obtener producto:', error);
@@ -72,7 +83,7 @@ export class ProductController {
         try {
             const  { category } = req.params;
 
-            const productsDataCategorys = await dbUtils.getElementsByField('products', 'category', category );
+            const productsDataCategorys = await dbUtils.getElementsByField(NameCollections.products, 'category', category );
 
             res.status(200).json({
                 info: {
@@ -103,7 +114,7 @@ export class ProductController {
             const productCreate = new ProductModel(category, name, price, img, description);
 
             // verificar si el producto name existe en la base de datos
-            const productExist = await dbUtils.getElementsByField('productsTest', 'name', productCreate.name)
+            const productExist = await dbUtils.getElementsByField(NameCollections.products, 'name', productCreate.name)
 
             if ( productExist ) {
                 res.status(409).json({
@@ -116,7 +127,7 @@ export class ProductController {
 
                 const product = helper.removeEmptyValues(productCreate);
 
-                const productAdded = await dbUtils.addElement('productsTest', product)
+                const productAdded = await dbUtils.addElement(NameCollections.products, product)
     
                 res.status(201).json({
                     info: {
@@ -143,7 +154,7 @@ export class ProductController {
             const { id } = req.params;
             const { category, name,  price, img, description } = req.body
 
-            const productExist = await dbUtils.getElementById('productsTest', id);
+            const productExist = await dbUtils.getElementById(NameCollections.products, id);
 
             if (!productExist) {
 
@@ -160,7 +171,7 @@ export class ProductController {
 
                 const product = helper.removeEmptyValues(productEdit);
 
-                const productUpdated = await dbUtils.updateElement('productsTest', id, product);
+                const productUpdated = await dbUtils.updateElement(NameCollections.products, id, product);
 
                 res.status(202).json({
                     info: {
@@ -188,7 +199,7 @@ export class ProductController {
         try {
             const { id } = req.params;
 
-            const productExist = await dbUtils.getElementById('productsTest', id);
+            const productExist = await dbUtils.getElementById(NameCollections.products, id);
 
             if (!productExist) {
                 
@@ -201,7 +212,7 @@ export class ProductController {
   
             } else {
 
-                const productDeleted = await dbUtils.deleteElement('productsTest', id);
+                const productDeleted = await dbUtils.deleteElement(NameCollections.products, id);
     
                 res.status(200).json({
                     info: {
